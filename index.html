@@ -11,16 +11,33 @@
     
     
     /* flex layout */
-    section.flex {
+    section.flex-row {
       display: flex;
       flex-flow: row wrap;
     }
+    section.flex-row > article { flex: 1; }
+    section.flex-row > article:nth-of-type(1) { flex: 0.3 }
+
+
     section.flex-column {
       display: flex;
       flex-direction: column;
     }
-    section.flex > h2 { display: block; }
-    section.flex > article { flex: 1; }
+    section.flex-column > article { flex: 1; }
+    section.flex-column > article:nth-of-type(2) { flex: 0.5; }
+
+
+    section.flex-justify {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    section.flex-justify > article { flex: 1; }
+    section.flex-justify > article:nth-of-type(2) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;      /*   vertical | cross-axis */
+      justify-content: center;  /* horizontal | main-axis  */
+    }
 
   </style>
 </head>
@@ -29,7 +46,7 @@
   <h1>flex</h1>
   
   <h2>flex-row</h2>
-  <section class='flex'>
+  <section class='flex-row'>
     <article class='box blue'>blue box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -43,7 +60,7 @@
   <hr>
 
   <h2>flex-column</h2>
-  <section class='flex flex-column'>
+  <section class='flex-column'>
     <article class='box red'> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -59,7 +76,26 @@
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </article>
-  
+  </section>
+
+  <h2>justify-content & align-items</h2>
+  <section class='flex-justify'>
+    <article class='box blue'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </article>
+
+    <article class='box red'>
+      <div>
+        <a href="#">This is a hyperlink</a>
+      </div>
+      <div>
+        <button>I am a button</button>
+      </div>
+    </article>
   </section>
 
 </body>
