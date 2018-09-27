@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>CSS Property exps</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style type="text/css">
+    
+    .box { padding: 10px; margin: 10px; }
+    .red { background: orangered; } .blue { background: dodgerblue; }
+    
+    
+    /* flex layout */
+    section.flex {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    section.flex-column {
+      display: flex;
+      flex-direction: column;
+    }
+    section.flex > h2 { display: block; }
+    section.flex > article { flex: 1; }
+
+  </style>
+</head>
+<body>
+
+  <h1>flex</h1>
+  
+  <h2>flex-row</h2>
+  <section class='flex'>
+    <article class='box blue'>blue box Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</article>
+    
+    <article class='box red'>the right box will automatically take the height of the longer article along side it and apply it to all in the same flex box</article>
+  </section>
+
+  <hr>
+
+  <h2>flex-column</h2>
+  <section class='flex flex-column'>
+    <article class='box red'> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </article>
+
+    <article class='box blue'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </article>
+  
+  </section>
+
+</body>
+</html>
