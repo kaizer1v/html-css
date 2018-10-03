@@ -27,6 +27,8 @@
       box-shadow: 2px 2px #e23628;
     }
 
+    .desc { font-size: 0.8em; margin: -20px 0 30px 0; }
+
     .price {
       color: #fff;
       width: 100px;
@@ -56,6 +58,7 @@
       article .subsection i { margin-right: 5px; }
       article .subsection p:nth-child(1) { font-size: 0.5em; }
       article .subsection p:nth-child(2) { font-weight: bolder; }
+      article .subsection:nth-last-child(2) { border-bottom: none; }
 
     article:nth-child(2) {
       color: #fff;
@@ -64,6 +67,11 @@
       align-self: stretch;
       box-shadow: 5px 5px 5px #999;
     }
+      article:nth-child(2) button {
+        background: #30b6bf;
+        box-shadow: 2px 2px #068187;
+        margin-top: 2em;
+      }
 
     /* extra shadow */
     article:nth-child(3) {
@@ -78,10 +86,10 @@
     <% for(let i = 0; i < plans.length; i++) { %>
     <article>
       <h2><%= plans[i]['name'] %></h2>
+      <p class="desc">This is just a photoshop image.</p>
       <div class="price">
         <em><%= plans[i]['price'] %></em> $ <sub>/ month</sub>
       </div>
-
       <div class="subsection">
         <p>Downloads</p>
         <p><i class="fas fa-download"></i><%= plans[i]['downloads'] %></p>
