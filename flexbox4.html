@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Flexbox Experiments</title>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style type="text/css">
+    body {
+      background: #eee;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    section {
+      display: flex;
+      color: #787878;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      border: 0;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 20px;
+      background: #f42500;
+      box-shadow: 2px 2px #e23628;
+    }
+
+    .price {
+      color: #fff;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 50px;
+      background: #f42500;
+      display: inline-block;
+      vertical-align: middle;
+    }
+      .price > em {
+        font-size: 1.6em;
+        font-weight: bolder;
+      }
+
+    article {
+      padding: 10px;
+      background: #fff;
+      text-align: center;
+    }
+      article .subsection {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+        border-bottom: 1px solid #eee;
+      }
+      article .subsection i { margin-right: 5px; }
+      article .subsection p:nth-child(1) { font-size: 0.5em; }
+      article .subsection p:nth-child(2) { font-weight: bolder; }
+
+    article:nth-child(2) {
+      color: #fff;
+      flex-grow: 0.2;
+      background: #169aa2;
+      align-self: stretch;
+      box-shadow: 5px 5px 5px #999;
+    }
+
+    /* extra shadow */
+    article:nth-child(3) {
+      box-shadow: inset 5px 0px 6px 0px #999;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <script type="text/html" class="plans">
+    <% for(let i = 0; i < plans.length; i++) { %>
+    <article>
+      <h2><%= plans[i]['name'] %></h2>
+      <div class="price">
+        <em><%= plans[i]['price'] %></em> $ <sub>/ month</sub>
+      </div>
+
+      <div class="subsection">
+        <p>Downloads</p>
+        <p><i class="fas fa-download"></i><%= plans[i]['downloads'] %></p>
+      </div>
+      <div class="subsection">
+        <p>Video Support</p>
+        <p><i class="fas fa-video"></i><%= (plans[i]['is_video']) ? 'Yes' : 'No' %></p>
+      </div>
+      <div class="subsection">
+        <p>Operating System</p>
+        <p><i class="fab fa-android"></i><%= plans[i]['os'] %></p>
+      </div>
+      <p><button>Select Plan</button></p>
+    </article>
+    <% } %>
+  </script>
+  <section class="plans"></section>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="node_modules/lodash/lodash.min.js"></script>
+<script type="text/javascript">
+  
+  var plans = [{
+    name: 'Basic Plan',
+    desc: 'This is the photoshop version',
+    price: 30,
+    downloads: 30,
+    is_video: true,
+    os: 'Android'
+  }, {
+    name: 'Pro Plan',
+    desc: 'This is the photoshop version',
+    price: 90,
+    downloads: 99,
+    is_video: true,
+    os: 'Android'
+  }, {
+    name: 'Premium Plan',
+    desc: 'This is the photoshop version',
+    price: 140,
+    downloads: 'unlimited',
+    is_video: true,
+    os: 'iOS'
+  }];
+
+  render('.plans', plans)
+
+  function render(elem, data) {
+    var template = $('script' + elem).html()
+    var c = _.template(template)
+    $(elem + ':not(script)').html(c({ plans: data }))
+  }
+
+
+</script>
+</body>
+</html>
